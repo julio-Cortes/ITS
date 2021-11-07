@@ -37,7 +37,8 @@ def get_webhook():
     }
 
     message_url = BOT_URL + 'sendMessage'
-    requests.post(message_url, json=json_data)
+    print(json_data)
+   #requests.post(message_url, json=json_data)
 
 
 if __name__ == '__main__':
