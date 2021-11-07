@@ -1,3 +1,5 @@
+import os
+
 from flask import Flask, send_from_directory
 import flask_cors
 import gunicorn
@@ -18,4 +20,4 @@ def serve():
 
 
 if __name__ == '__main__':
-    app.run()
+    app.run(host='0.0.0.0', debug=False, port=int(os.environ.get("PORT", 5000)))
