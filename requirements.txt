@@ -11,7 +11,6 @@ click==8.0.3
 clikit==0.6.2
 crashtest==0.3.1
 cryptography==3.4.8
-Cython @ file:///buildstream/freedesktop-sdk/components/cython.bst
 distlib==0.3.2
 filelock==3.0.12
 Flask==2.0.2
