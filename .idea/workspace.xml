@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="69942d9f-0316-460f-9fe6-b7546e0bc8b4" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -59,7 +59,7 @@
       <updated>1636247545573</updated>
       <workItem from="1636247546894" duration="2965000" />
       <workItem from="1636252072628" duration="15000" />
-      <workItem from="1636252110131" duration="2774000" />
+      <workItem from="1636252110131" duration="3094000" />
     </task>
     <servers />
   </component>
