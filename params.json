@@ -1,0 +1,75 @@
+{
+  "DB_params": {
+
+  },
+  "API_params": {
+
+  },
+  "Questions": [
+    {
+      "Question": "Cual es el output de:\n`perro = guau\nprint(perro)`",
+      "Alternatives": [
+        [{"text": "guau"}],
+          [{"text": "'guau'"}],
+          [{"text": "SyntaxError: EOL while scanning string literal"}],
+          [{"text": "perro"}]
+
+      ],
+      "Answer": "guau"
+
+    },
+    {
+      "Question": "Cual es el output del siguiente codigo:\n`x = 10\nif x == 10:\n\tprint(x es igual es a 10)\nelse:\n\tprint(x es distinto de 10)`" ,
+      "Alternatives": [
+        [{"text": "x es igual es a 10"}],
+          [{"text": "x es distinto de 10"}],
+          [{"text": "x"}],
+          [{"text": "10"}]
+
+      ],
+      "Answer": "x es igual es a 10"
+
+    },
+        {
+      "Question": "En el siguiente codigo, cuantas veces se imprime 'Hello world':\n`for i in range(10)\n\tprint('Hello world')`" ,
+      "Alternatives": [
+        [{"text": "9"}],
+          [{"text": "10"}],
+          [{"text": "11"}],
+          [{"text": "Ninguna"}]
+
+      ],
+      "Answer": "10"
+
+    },
+    {
+      "Question": "Respecto a diccionarios, tuplas y listas, cual de las siguientes alternativas es verdadera:",
+
+      "Alternatives": [
+        [
+          {
+            "text": "Una Lista tiene tamaño fijo "
+          }
+        ],
+        [
+          {
+            "text": "Una tupla es mutable"
+          }
+        ],
+        [
+          {
+            "text": "Las llaves de los diccionarios estan ordenadas"
+          }
+        ],
+        [
+          {
+            "text": "Las tuplas tienen tamaño fijo."
+          }
+        ]
+      ],
+      "Answer": "x es igual es a 10"
+
+    }
+
+  ]
+}
