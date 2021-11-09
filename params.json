@@ -7,7 +7,7 @@
   },
   "Questions": [
     {
-      "Question": "Cual es el output de:\n`perro = guau\nprint(perro)`",
+      "Question": "Cual es el output de:\n`perro = 'guau'\nprint(perro)`",
       "Alternatives": [
         [{"text": "guau"}],
           [{"text": "'guau'"}],
@@ -31,7 +31,7 @@
 
     },
         {
-      "Question": "En el siguiente codigo, cuantas veces se imprime 'Hello world':\n`for i in range(10)\n\tprint('Hello world')`" ,
+      "Question": "En el siguiente codigo, cuantas veces se imprime 'Hello world':\n`for i in range(10):\n\tprint('Hello world')`" ,
       "Alternatives": [
         [{"text": "9"}],
           [{"text": "10"}],
