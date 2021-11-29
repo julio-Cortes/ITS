@@ -12,7 +12,7 @@ from json import load
 app = Flask(__name__, static_folder='client/build', static_url_path='')
 cors = CORS(app)
 BOT_URL = f'https://api.telegram.org/bot2110362248:AAFipt4bqziQLmmqmSdaCaw8e08L5UZYJCI/'
-
+"""https://api.telegram.org/bot{my_bot_token}/setWebhook?url="""
 params = ""
 with open("params.json") as params_file:
     params = load(params_file)
@@ -36,26 +36,27 @@ def serve():
 def get_webhook():
     data = request.json
 
-    print(data)  # Comment to hide what Telegram is sending you
-    chat_id = data['message']['chat']['id']
-    question = its.send_question()
-    json_data = {
-        "chat_id": chat_id,
-        "parse_mode": "MarkdownV2",
-        "text":question["Question"],
-        "reply_markup": {"keyboard": question["Alternatives"],
-                         "resize_keyboard": True,
-                         "one_time_keyboard": True
-                         }
-
-    }
-
-    message_url = BOT_URL + 'sendMessage'
-    print(json_data)
-    print(message_url)
-    requests.post(message_url, json=json_data)
-    return json_data, 200
-
+    print(data)
+    if "message" in data:# Comment to hide what Telegram is sending you
+        chat_id = data['message']['chat']['id']
+        question = its.send_question()
+        json_data = {
+            "chat_id": chat_id,
+            "parse_mode": "MarkdownV2",
+            "text":question["Question"],
+            "reply_markup": {"keyboard": question["Alternatives"],
+                             "resize_keyboard": True,
+                             "one_time_keyboard": True
+                             }
+    
+        }
+    
+        message_url = BOT_URL + 'sendMessage'
+        print(json_data)
+        print(message_url)
+        requests.post(message_url, json=json_data)
+        return json_data, 200
+    return {},200
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', debug=False, port=int(os.environ.get("PORT", 8080)))

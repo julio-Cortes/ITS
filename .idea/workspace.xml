@@ -27,6 +27,7 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="DatabaseDriversLRU" value="postgresql" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
@@ -70,7 +71,16 @@
       <workItem from="1636252110131" duration="4069000" />
       <workItem from="1636256359472" duration="1077000" />
       <workItem from="1636392516758" duration="8000" />
-      <workItem from="1636392526335" duration="5433000" />
+      <workItem from="1636392526335" duration="5510000" />
+      <workItem from="1636399801610" duration="12000" />
+      <workItem from="1636416646607" duration="1302000" />
+      <workItem from="1636418414683" duration="4000" />
+      <workItem from="1636426910669" duration="315000" />
+      <workItem from="1636427257334" duration="17000" />
+      <workItem from="1636427401259" duration="328000" />
+      <workItem from="1636590542988" duration="15000" />
+      <workItem from="1636592827065" duration="863000" />
+      <workItem from="1638031434691" duration="8987000" />
     </task>
     <servers />
   </component>
@@ -78,7 +88,7 @@
     <option name="version" value="3" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/ITS$app.coverage" NAME="app Coverage Results" MODIFIED="1636397958872" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/ITS$app.coverage" NAME="app Coverage Results" MODIFIED="1638152067208" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/ITS$main.coverage" NAME="main Coverage Results" MODIFIED="1636250156098" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>
