@@ -21,32 +21,31 @@ its = Its(params)
 
 
 @app.route("/api/questions", methods=['POST'])
-@crossdomain(origin='*',headers=['access-control-allow-origin','Content-Type'])
+@cross_origin()
 def questions():
     data = request.json
     return its.post_questions(data)
 
 
 @app.route("/api/users", methods=['GET'])
-@crossdomain(origin='*',headers=['access-control-allow-origin','Content-Type'])
+@cross_origin()
 def users():
     return its.get_users()
 
 
 @app.route("/api/modules", methods=['GET'])
-@crossdomain(origin='*',headers=['access-control-allow-origin','Content-Type'])
+@cross_origin()
 def modules():
     return its.get_modules()
 
 
 @app.route('/api')
-@crossdomain(origin='*',headers=['access-control-allow-origin','Content-Type'])
+@cross_origin()
 def Welcome():
     return "Welcome to the API!!!"
 
-
 @app.route("/api/webhook", methods=['POST'])
-@crossdomain(origin='*',headers=['access-control-allow-origin','Content-Type'])
+@cross_origin()
 def get_webhook():
     data = request.json
 
