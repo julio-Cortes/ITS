@@ -44,12 +44,6 @@ def modules():
 def Welcome():
     return "Welcome to the API!!!"
 
-
-@app.route('/')
-def serve():
-    return send_from_directory(app.static_folder, 'index.html')
-
-
 @app.route("/api/webhook", methods=['POST'])
 @cross_origin()
 def get_webhook():
