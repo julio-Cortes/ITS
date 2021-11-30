@@ -2,23 +2,18 @@ CREATE TABLE modules(
     id serial PRIMARY KEY ,
     name varchar(50)
 );
-CREATE TABLE submodules(
-    id serial PRIMARY KEY,
-    name varchar (50),
-    module_id integer,
-    foreign key (module_id)
-                       REFERENCES modules(id) on delete cascade
-);
+
 --type 1 practical type2 theorical
 CREATE TABLE questions(
     id serial PRIMARY KEY,
     question varchar(500),
     hint varchar(100),
     type integer,
-    submodule_id integer,
+    difficulty integer,
+    module_id integer,
     query varchar(500),
-    foreign key (submodule_id)
-                      REFERENCES submodules(id) on delete cascade
+    foreign key (module_id)
+                      REFERENCES modules(id) on delete cascade
 
 );
 
@@ -36,6 +31,7 @@ CREATE TABLE users (
     first_name varchar(100),
     last_name varchar(100),
     approved bool,
+    current_module_score integer,
     current_module_id integer,
     last_question_id integer,
     penultimate_question_id integer,
@@ -52,6 +48,7 @@ CREATE TABLE userquestions(
     user_id integer,
     question_id integer,
     correct bool,
+    hint bool,
     foreign key (user_id)
         references users(id) on delete cascade,
     foreign key (question_id)
@@ -59,14 +56,3 @@ CREATE TABLE userquestions(
     created_at TIMESTAMPTZ NOT NULL DEFAULT NOW()
 );
 
-CREATE TABLE usersubmodules(
-    id serial PRIMARY KEY ,
-    user_id integer,
-    submodule_id integer,
-    current_score integer,
-    foreign key (user_id)
-        references users(id) on delete cascade,
-    foreign key (submodule_id)
-        references submodules(id) on delete cascade
-
-);

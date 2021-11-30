@@ -20,6 +20,25 @@ with open("params.json") as params_file:
 its = Its(params)
 
 
+@app.route("/api/questions", methods=['POST'])
+@cross_origin()
+def questions():
+    data = request.json
+    return its.post_questions(data)
+
+
+@app.route("/api/users", methods=['GET'])
+@cross_origin()
+def users():
+    return its.get_users()
+
+
+@app.route("/api/modules", methods=['GET'])
+@cross_origin()
+def modules():
+    return its.get_modules()
+
+
 @app.route('/api')
 @cross_origin()
 def Welcome():
@@ -37,26 +56,17 @@ def get_webhook():
     data = request.json
 
     print(data)
-    if "message" in data:# Comment to hide what Telegram is sending you
-        chat_id = data['message']['chat']['id']
-        question = its.send_question()
-        json_data = {
-            "chat_id": chat_id,
-            "parse_mode": "MarkdownV2",
-            "text":question["Question"],
-            "reply_markup": {"keyboard": question["Alternatives"],
-                             "resize_keyboard": True,
-                             "one_time_keyboard": True
-                             }
-    
-        }
-    
+    if "message" in data:  # Comment to hide what Telegram is sending you
+        json_data = its.process_message(data)
+
         message_url = BOT_URL + 'sendMessage'
         print(json_data)
         print(message_url)
-        requests.post(message_url, json=json_data)
+        print(requests.post(message_url, json=json_data))
+
         return json_data, 200
-    return {},200
+    return {}, 200
+
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', debug=False, port=int(os.environ.get("PORT", 8080)))
