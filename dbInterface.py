@@ -175,40 +175,44 @@ class dbInterface:
                                 if result4[0][1]:
                                     val *= 0.8
                 else:
-                    val = 10
-                    if "INSERT" in query:
-                        table = query.split(" ")[1]
-                        query_ins = f"SELECT COUNT(*) FROM {table};"
-                        res_c1 = self.execute(query_ins, True)
-                        if res_c1 is not None:
-                            res_c1 = res_c1[0][0]
+                    try:
+                        val = 10
+                        if "INSERT" in query:
+                            table = query.split(" ")[1]
+                            query_ins = f"SELECT COUNT(*) FROM {table};"
+                            res_c1 = self.execute(query_ins, True)
+                            if res_c1 is not None:
+                                res_c1 = res_c1[0][0]
 
-                        self.execute(anwser, True)
-                        table = query.split(" ")[1]
-                        query_ins = f"SELECT COUNT(*) FROM {table};"
-                        res_c = self.execute(query_ins, True)
-                        if res_c is not None:
-                            res_c = res_c[0][0]
-                        if res_c != res_c1:
-                            val *= 0.8
-                        else:
-                            val *= -0.5
-                    elif "CREATE" in query:
-                        if query.lower().replace(" ","").replace("\n","").replace("\t","") == \
-                                anwser.lower().replace(" ",""):
-                            val *= 0.8
-                        else:
-                            val *= -0.5
-                    else:
-                        res1 = self.execute(anwser,True)
-                        res2 = self.execute(query, True)
-                        if res1 is not None and res2 is not None:
-                            if res1 != res2:
-                                val *= -0.5
+                            self.execute(anwser, True)
+                            table = query.split(" ")[1]
+                            query_ins = f"SELECT COUNT(*) FROM {table};"
+                            res_c = self.execute(query_ins, True)
+                            if res_c is not None:
+                                res_c = res_c[0][0]
+                            if res_c != res_c1:
+                                val *= 0.8
                             else:
-                                if result4 is not None:
-                                    if result4[0][1]:
-                                        val *= 0.8
+                                val *= -0.5
+                        elif "CREATE" in query:
+                            if query.lower().replace(" ","").replace("\n","").replace("\t","") == \
+                                    anwser.lower().replace(" ",""):
+                                val *= 0.8
+                            else:
+                                val *= -0.5
+                        else:
+                            res1 = self.execute(anwser,True)
+                            res2 = self.execute(query, True)
+                            if res1 is not None and res2 is not None:
+                                if res1 != res2:
+                                    val *= -0.5
+                                else:
+                                    if result4 is not None:
+                                        if result4[0][1]:
+                                            val *= 0.8
+                    except e:
+                        print("FALLO EJECUTANDO DESAROLLO")
+
 
             self.update_score(result4[0][0], user_id, val)
         self.pick_new_question(user_id)
