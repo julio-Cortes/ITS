@@ -210,7 +210,7 @@ class dbInterface:
                                     if result4 is not None:
                                         if result4[0][1]:
                                             val *= 0.8
-                    except e:
+                    except:
                         print("FALLO EJECUTANDO DESAROLLO")
 
 
