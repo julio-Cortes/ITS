@@ -56,3 +56,7 @@ CREATE TABLE userquestions(
     created_at TIMESTAMPTZ NOT NULL DEFAULT NOW()
 );
 
+CREATE TABLE actions(
+    id serial PRIMARY KEY ,
+    action varchar(500),    created_at TIMESTAMPTZ NOT NULL DEFAULT NOW()
+);

@@ -8,6 +8,11 @@ class Its:
         self.questions = params["Questions"]
         self.db = dbInterface()
 
+    def sendAction(self, action):
+        self.db.sendAction(action)
+
+    def getActions(self):
+        return self.db.getActions()
 
     def get_modules(self):
         return self.db.get_modules()

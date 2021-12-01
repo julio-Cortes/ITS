@@ -127,9 +127,9 @@ class dbInterface:
                 query_question, query_question2 = query_question[0][0], query_question2[0][0]
                 if query_question == query_question2:
                     if query_question == 2:
-                        type = 2
-                    else:
                         type = 1
+                    else:
+                        type = 2
                     query3 = f"SELECT id from questions where difficulty = {difficulty} and type = {type} and " \
                              f"module_id={module} and id not in {questions_results} order by random() limit 1;"
                 else:
@@ -378,3 +378,25 @@ class dbInterface:
         self.close_connection()
         return {"msg":"success"},200
 
+    def sendAction(self,action):
+        action = action
+        self.connect()
+        query = f"INSERT INTO actions (action) values ('{action}')"
+        self.execute(query, False)
+        self.close_connection()
+
+    def getActions(self):
+        self.connect()
+        query = f"SELECT action, created_at from actions"
+        res =  self.execute(query,True)
+        l = []
+        if res is not None:
+            for item in res:
+                l.append(
+                    {
+                        "action":item[0],
+                        "timestamp":str(item[1])
+                    }
+                )
+        self.close_connection()
+        return json.dumps(l)

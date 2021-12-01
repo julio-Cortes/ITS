@@ -39,10 +39,18 @@ def modules():
     return its.get_modules()
 
 
-@app.route('/api')
+@app.route('/api', methods=['POST'])
 @cross_origin()
 def Welcome():
-    return "Welcome to the API!!!"
+    its.sendAction(request.data.decode("utf-8").replace('"',""))
+    return str(request.data), 200
+
+
+@app.route('/api/actions', methods = ['GET'])
+@cross_origin()
+def getActions():
+    return its.getActions(), 200
+
 
 @app.route("/api/webhook", methods=['POST'])
 @cross_origin()
